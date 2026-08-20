@@ -57,7 +57,7 @@ Inspect the resulting objects with:
 \d tasks
 ```
 
-The verification should show three tables, primary keys on `users.id`, `projects.project_id`, and `tasks.task_id`, a unique constraint on `users.email`, and foreign keys from `tasks` to both parent tables. A further integrity check can be performed with:
+The verification should show three tables, primary keys on `users.id`, `projects.project_id`, and `tasks.task_id`, a unique constraint on `users.email`, and foreign keys from `tasks` to both parent tables. In the completed verification run, PostgreSQL reported all three tables, all expected primary/foreign-key constraints, the `users_email_key` unique constraint, and rejected the intentionally invalid task with `tasks_user_id_fkey`. A further integrity check can be performed with:
 
 ```sql
 INSERT INTO users (name, email) VALUES ('Asha Rao', 'asha@example.com');
