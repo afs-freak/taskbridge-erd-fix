@@ -1,0 +1,22 @@
+erDiagram
+    USERS ||--o{ TASKS : "assigned to"
+    PROJECTS ||--o{ TASKS : "contains"
+
+    USERS {
+        int id PK
+        string name "required"
+        string email UK "required"
+    }
+
+    PROJECTS {
+        int project_id PK
+        string name "required"
+        string description
+    }
+
+    TASKS {
+        int task_id PK
+        string title "required"
+        int user_id FK "required"
+        int project_id FK "required"
+    }
